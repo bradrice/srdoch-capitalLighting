@@ -1,0 +1,16 @@
+.Layout__wrapper {
+  min-height: 100vh;
+}
+
+.Layout__page-header {
+  display: flex;
+  flex-direction: flex-start;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.Layout__save-button {
+  height: auto;
+}

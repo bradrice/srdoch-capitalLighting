@@ -1,0 +1,52 @@
+{
+  "location": [
+    { "id": 1, "title": "Interior Footcandle Readings" },
+    { "id": 2, "title": "Interior Lighting Controls" },
+    { "id": 3, "title": "Interior Track Information" },
+    { "id": 4, "title": "Inverter Information" }
+  ],
+  "locationControls": [
+    {
+      "id": 1,
+      "controls": [
+        { "id": 1, "input-type": "text", "label": "SF Rear Left" },
+        { "id": 2, "input-type": "text", "label": "SF Rear Center" },
+        { "id": 3, "input-type": "text", "label": "SF Rear Right" },
+        { "id": 4, "input-type": "text", "label": "SF Middle Left" },
+        { "id": 5, "input-type": "text", "label": "SF Middle Center" },
+        { "id": 6, "input-type": "text", "label": "SF Middle Right" },
+        { "id": 7, "input-type": "text", "label": "SF Front Left" },
+        { "id": 8, "input-type": "text", "label": "SF Front Center" },
+        { "id": 9, "input-type": "text", "label": "SF Front Right" }
+      ]
+    },
+    {
+      "id": 2,
+      "controls": [
+        { "id": 1, "input-type": "radio", "label": "Lighting Control Panel" },
+        { "id": 2, "input-type": "radio", "label": "Contractor" },
+        { "id": 3, "input-type": "text", "label": "Time Clock" }
+      ]
+    },
+    {
+      "id": 3,
+      "controls": [
+        { "id": 1, "input-type": "radio", "label": "Bussway" },
+        { "id": 2, "input-type": "radio", "label": "Lightoiler" },
+        { "id": 3, "input-type": "text", "label": "Juno" },
+        { "id": 4, "input-type": "text", "label": "Halo" },
+        { "id": 5, "input-type": "text", "label": "LiteLab" },
+        { "id": 6, "input-type": "text", "label": "Contech" },
+        { "id": 7, "input-type": "text", "label": "Capri Track" }
+      ]
+    },
+    {
+      "id": 4,
+      "controls": [
+        { "id": 1, "input-type": "radio", "label": "Yes" },
+        { "id": 2, "input-type": "radio", "label": "No" },
+        { "id": 3, "input-type": "text", "label": "Unknown" }
+      ]
+    }
+  ]
+}
