@@ -1,0 +1,9 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.validate": ["javascript", "typescript"],
+  "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+"editor.formatOnSave": true,
+"editor.defaultFormatter": "dbaeumer.vscode-eslint"
+}
