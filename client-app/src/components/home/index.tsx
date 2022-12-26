@@ -2,6 +2,8 @@ import { Button } from 'reactstrap';
 import { useNavigate } from 'react-router-dom';
 import { Layout } from '../Layout';
 
+import './styles.scss';
+
 export const Home = (): JSX.Element => {
   const navigate = useNavigate();
 
@@ -16,11 +18,11 @@ export const Home = (): JSX.Element => {
         <div>
           <h2>Audit Introduction</h2>
           <hr />
-          <h3>
+          <p>
             Welcome to the Capitol Light Site Audit System. Please fill in the
             information below and press 'Continue' to proceed to the Audit
             Dashboard
-          </h3>
+          </p>
           <div className="row">
             <div className="col-6">
               <p>Audit Number: 21</p>
@@ -43,7 +45,7 @@ export const Home = (): JSX.Element => {
           </div>
           <div className="row">
             <div className="col-12">
-              <Button onClick={handleClick}>Start Audit</Button>
+              <Button color="primary" onClick={handleClick}>Start Audit</Button>
             </div>
           </div>
         </div>
