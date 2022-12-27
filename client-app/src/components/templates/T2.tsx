@@ -47,7 +47,6 @@ export const T2 = (props: TemplateProps) => {
       <h3>
         {props.data?.subhead}
       </h3>
-      <p>{controlState.level}</p>
         <Formik
     initialValues={{
       picked: ''

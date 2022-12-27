@@ -1,7 +1,6 @@
 import { useReducer, useEffect } from 'react';
 import { TemplateProps, Controls } from '../../types/';
 import { Formik, Field, Form } from 'formik';
-
 import './template.scss';
 
 interface State {
@@ -47,7 +46,6 @@ export const T3 = (props: TemplateProps) => {
       <h3>
         {props.data?.subhead}
       </h3>
-      <p>{controlState.level}</p>
         <Formik
     initialValues={{
       picked: ''
@@ -84,7 +82,14 @@ export const T3 = (props: TemplateProps) => {
 }
 { (controlState.level > 1 && controlState.controls[controlState.level][0].inputType === 'radio') &&
   <div className="mb-3">
-Draw a new row of buttons
+    {controlState.controls[controlState.level].map((item: Controls) => {
+      return (
+        <div key={item.id} className="mb-3 form-check form-check-inline">
+          <Field id={item.id} name="lightoiler" value={item.value} type="radio" className="form-check-input" />
+          <label className="form-check-label" htmlFor={item.id}>{item.label}</label>
+          </div>
+      )
+    })}
 </div>
 }
         <button type="submit" className="btn btn-primary">Submit</button>
