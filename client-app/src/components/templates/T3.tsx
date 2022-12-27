@@ -30,7 +30,7 @@ function reducer(state: State, action: ControlsAction): State {
 }
 
 
-export const T2 = (props: TemplateProps) => {
+export const T3 = (props: TemplateProps) => {
   const [controlState, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
@@ -80,6 +80,11 @@ export const T2 = (props: TemplateProps) => {
   <div className="mb-3">
 <label htmlFor={controlState.controls[controlState.level][0].name} className="form-label">{controlState.controls[controlState.level][0].label}</label>
             <Field id={controlState.controls[controlState.level][0].id} name={controlState.controls[controlState.level][0].name} placeholder="" className="form-control" />
+</div>
+}
+{ (controlState.level > 1 && controlState.controls[controlState.level][0].inputType === 'radio') &&
+  <div className="mb-3">
+Draw a new row of buttons
 </div>
 }
         <button type="submit" className="btn btn-primary">Submit</button>

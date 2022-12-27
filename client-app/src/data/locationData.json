@@ -81,12 +81,12 @@
 			"heading": "Overall Lighting Controls",
 			"subhead": "What Controls the Lighting in this Facility",
 			"controls": [{
-					"id": "l1",
+					"id": "2l1",
 					"inputType": "radio",
 					"label": "Lighting Control Panel",
 					"name": "lightingcontrolpanel",
 					"subcontrol": [{
-						"id": "l1-1",
+						"id": "2l1-1",
 						"inputType": "text",
 						"label": "Lighting Control Panel",
 						"name": "lightingcontrolpanel",
@@ -96,13 +96,13 @@
 					}]
 				},
 				{
-					"id": "l2",
+					"id": "2l2",
 					"inputType": "radio",
 					"label": "Contractor",
 					"name": "contractor"
 				},
 				{
-					"id": "l3",
+					"id": "2l3",
 					"inputType": "text",
 					"label": "Time Clock",
 					"name": "timeclock"
@@ -111,14 +111,14 @@
 		},
 		{
 			"id": "3",
-			"template": "T2",
+			"template": "T3",
 			"controls": [{
-					"id": "l1",
+					"id": "3l1",
 					"inputType": "radio",
 					"label": "Bussway",
 					"name": "bussway",
 					"subcontrol": [{
-						"id": "l1-1",
+						"id": "3l1-1",
 						"inputType": "text",
 						"label": "Describe the Bussway Track Type",
 						"name": "busswaytracktype",
@@ -126,18 +126,18 @@
 					}]
 				},
 				{
-					"id": "l2",
+					"id": "3l2",
 					"inputType": "radio",
 					"label": "Lightoiler",
 					"name": "lightoiler",
 					"subcontrol": [{
-							"id": "l2-1",
+							"id": "3l2-1",
 							"inputType": "radio",
 							"label": "Unitstrut",
 							"name": "unitstrut",
 							"value": "Unitstrut",
 							"subcontrol": [{
-								"id": "l2-1-1",
+								"id": "3l2-1-1",
 								"inputType": "text",
 								"label": "Mounting Height",
 								"name": "mountingheight",
@@ -146,13 +146,13 @@
 							}]
 						},
 						{
-							"id": "l2-2",
+							"id": "3l2-2",
 							"inputType": "radio",
 							"label": "Pendant",
 							"name": "pendant",
 							"value": "Pendant",
 							"subcontrol": [{
-								"id": "l2-2-1",
+								"id": "3l2-2-1",
 								"inputType": "text",
 								"label": "Mounting Height",
 								"name": "mountingheight",
@@ -161,13 +161,13 @@
 							}]
 						},
 						{
-							"id": "l2-3",
+							"id": "3l2-3",
 							"inputType": "radio",
 							"label": "Cable",
 							"name": "cable",
 							"value": "Cable",
 							"subcontrol": [{
-								"id": "l2-3-1",
+								"id": "3l2-3-1",
 								"inputType": "text",
 								"label": "Mounting Height",
 								"name": "mountingheight",
@@ -176,13 +176,13 @@
 							}]
 						},
 						{
-							"id": "l2-4",
+							"id": "3l2-4",
 							"inputType": "radio",
 							"label": "Surface",
 							"name": "surface",
 							"value": "Surface",
 							"subcontrol": [{
-								"id": "l2-4-1",
+								"id": "3l2-4-1",
 								"inputType": "text",
 								"label": "Mounting Height",
 								"name": "mountingheight",
@@ -191,13 +191,13 @@
 							}]
 						},
 						{
-							"id": "l2-5",
+							"id": "3l2-5",
 							"inputType": "radio",
 							"label": "Other",
 							"name": "other",
 							"value": "Other",
 							"subcontrol": [{
-								"id": "l2-5-1",
+								"id": "3l2-5-1",
 								"inputType": "text",
 								"label": "Describe Other Mounting Height",
 								"name": "mountingheight",
@@ -208,31 +208,31 @@
 					]
 				},
 				{
-					"id": "l3",
+					"id": "3l3",
 					"inputType": "text",
 					"label": "Juno",
 					"name": "juno"
 				},
 				{
-					"id": "l4",
+					"id": "3l4",
 					"inputType": "text",
 					"label": "Halo",
 					"name": "halo"
 				},
 				{
-					"id": "l5",
+					"id": "3l5",
 					"inputType": "text",
 					"label": "LiteLab",
 					"name": "litelab"
 				},
 				{
-					"id": "l6",
+					"id": "3l6",
 					"inputType": "text",
 					"label": "Contech",
 					"name": "contech"
 				},
 				{
-					"id": "l7",
+					"id": "3l7",
 					"inputType": "text",
 					"label": "Capri Track",
 					"name": "capritrack"
@@ -241,21 +241,21 @@
 		},
 		{
 			"id": "4",
-			"template": "T2",
+			"template": "T4",
 			"controls": [{
-					"id": "l1",
+					"id": "4l1",
 					"inputType": "radio",
 					"label": "Yes",
 					"name": "yes"
 				},
 				{
-					"id": "l2",
+					"id": "4l2",
 					"inputType": "radio",
 					"label": "No",
 					"name": "no"
 				},
 				{
-					"id": "l3",
+					"id": "4l3",
 					"inputType": "text",
 					"label": "Unknown",
 					"name": "unknown"

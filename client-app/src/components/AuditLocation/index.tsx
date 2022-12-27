@@ -4,6 +4,7 @@ import { Layout } from '../Layout';
 import locationData from '../../data/locationData.json';
 import { T1 } from '../templates/T1';
 import { T2 } from '../templates/T2';
+import { T3 } from '../templates/T3';
 import { NotFound } from '../templates/NotFound';
 
 import { Template } from '../../types';
@@ -28,6 +29,8 @@ export const AuditLocation = () => {
         return <T1 data={templateData} />;
       case 'T2':
         return <T2 data={templateData} />
+      case 'T3':
+        return <T3 data={templateData} />
       default:
         return <NotFound />;
     }
