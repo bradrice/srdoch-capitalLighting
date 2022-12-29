@@ -1,10 +1,16 @@
-export interface Controls {
+export interface Control {
   id: string,
   inputType: string,
   label: string,
   name: string,
   value?: string,
-  subcontrol?: Controls[]
+  level: number,
+}
+
+export interface levelControl {
+  name: string;
+  level: number;
+  formControl: Control[]
 }
 
 export interface Template {
@@ -12,7 +18,7 @@ export interface Template {
   template: string,
   heading?: string,
   subhead?: string,
-  controls: Controls[]
+  control: levelControl[]
 }
 
 export interface TemplateProps {

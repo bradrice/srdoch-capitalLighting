@@ -1,0 +1,23 @@
+{
+	"location": [{
+			"id": 1,
+			"title": "Interior Footcandle Readings",
+			"template": "T1"
+		},
+		{
+			"id": 2,
+			"title": "Interior Lighting Controls"
+		},
+		{
+			"id": 3,
+			"title": "Interior Track Information"
+		},
+		{
+			"id": 4,
+			"title": "Inverter Information"
+		}, {
+			"id": 5,
+			"title": "New Interior Fixture"
+		}
+	]
+}

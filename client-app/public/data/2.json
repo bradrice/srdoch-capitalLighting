@@ -1,0 +1,52 @@
+{
+	"id": "2",
+	"template": "T2",
+	"heading": "Overall Lighting Controls",
+	"subhead": "What Controls the Lighting in this Facility",
+	"controls": [{
+			"id": "2l1",
+			"inputType": "radio",
+			"label": "Lighting Control Panel",
+			"name": "lightingcontrolpanel",
+			"subcontrol": [{
+				"id": "2l1-1",
+				"inputType": "text",
+				"label": "Lighting Control Panel Make",
+				"name": "lightingcontrolpanelmake",
+				"subcontrol": [
+
+				]
+			}]
+		},
+		{
+			"id": "2l2",
+			"inputType": "radio",
+			"label": "Contractor",
+			"name": "contractor",
+			"subcontrol": [{
+				"id": "2l1-2",
+				"inputType": "text",
+				"label": "Contractor Make",
+				"name": "contractormake",
+				"subcontrol": [
+
+				]
+			}]
+		},
+		{
+			"id": "2l3",
+			"inputType": "text",
+			"label": "Time Clock",
+			"name": "timeclock",
+			"subcontrol": [{
+				"id": "2l1-3",
+				"inputType": "text",
+				"label": "Time Clock Make",
+				"name": "timeclockmake",
+				"subcontrol": [
+
+				]
+			}]
+		}
+	]
+}

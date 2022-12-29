@@ -14,9 +14,13 @@
 		{
 			"id": 4,
 			"title": "Inverter Information"
+		}, {
+			"id": 5,
+			"title": "New Interior Fixture"
 		}
 	],
-	"locationControls": [{
+	"locationControls": [
+		{
 			"id": "1",
 			"template": "T1",
 			"controls": [{
@@ -659,6 +663,18 @@
 					"name": "unknown"
 				}
 			]
+		},
+		{
+			"id": "5",
+			"template": "T9",
+			"heading": "Overall Lighting Controls",
+			"subhead": "What Controls the Lighting in this Facility",
+			"controls": [{
+					"id": "sf1",
+					"inputType": "text",
+					"label": "SF Rear Left",
+					"name": "sfrearleft"
+				}]
 		}
 	]
 }

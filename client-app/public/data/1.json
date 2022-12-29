@@ -1,0 +1,47 @@
+{
+	"id": "1",
+	"template": "T1",
+	"controls": [{
+			"id": "sf1",
+			"inputType": "text",
+			"label": "SF Rear Left",
+			"name": "sfrearleft"
+		},
+		{
+			"id": "sf2",
+			"inputType": "text",
+			"label": "SF Rear Center",
+			"name": "sfrearcenter"
+		},
+		{
+			"id": "sf3",
+			"inputType": "text",
+			"label": "SF Rear Right",
+			"name": "sfrearright"
+		},
+		{
+			"id": "sf4",
+			"inputType": "text",
+			"label": "SF Middle Left",
+			"name": "sfmiddleleft"
+		},
+		{
+			"id": "sf5",
+			"inputType": "text",
+			"label": "SF Middle Center",
+			"name": "sfmiddlecenter"
+		},
+		{
+			"id": "sf6",
+			"inputType": "text",
+			"label": "SF Middle Right",
+			"name": "sfmiddleright"
+		},
+		{
+			"id": "sf7",
+			"inputType": "text",
+			"label": "SF Front Left",
+			"name": "sffrontleft"
+		}
+	]
+}

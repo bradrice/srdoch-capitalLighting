@@ -1,0 +1,22 @@
+{
+	"id": "4",
+	"template": "T4",
+	"controls": [{
+			"id": "4l1",
+			"inputType": "radio",
+			"label": "Yes",
+			"name": "yes"
+		},
+		{
+			"id": "4l2",
+			"inputType": "radio",
+			"label": "No",
+			"name": "no"
+		},
+		{
+			"id": "4l3",
+			"inputType": "text",
+			"label": "Unknown"
+		}
+	]
+}

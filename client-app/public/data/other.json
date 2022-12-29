@@ -1,0 +1,69 @@
+{
+	"location": 5,
+	"level1": [{
+		"id": "5",
+		"template": "T9",
+		"groupname": "newInteriorFixture",
+		"controls": [{
+				"id": "ol1",
+				"inputType": "radio",
+				"label": "High Bay",
+				"name": ""
+			},
+			{
+				"id": "ol2",
+				"inputType": "radio",
+				"label": "Pendant",
+				"name": ""
+			},
+			{
+				"id": "ol3",
+				"inputType": "radio",
+				"label": "Recessed",
+				"name": ""
+			},
+			{
+				"id": "ol4",
+				"inputType": "radio",
+				"label": "SF Middle Sconce",
+				"name": ""
+			},
+			{
+				"id": "ol5",
+				"inputType": "radio",
+				"label": "Shelf/Strip Light",
+				"name": ""
+			},
+			{
+				"id": "ol6",
+				"inputType": "radio",
+				"label": "Troffer",
+				"name": ""
+			},
+			{
+				"id": "ol7",
+				"inputType": "radio",
+				"label": "Track Head",
+				"name": ""
+			},
+			{
+				"id": "ol8",
+				"inputType": "radio",
+				"label": "Wallpak",
+				"name": ""
+			},
+			{
+				"id": "ol9",
+				"inputType": "radio",
+				"label": "Emergency",
+				"name": ""
+			},
+			{
+				"id": "ol10",
+				"inputType": "radio",
+				"label": "Other",
+				"name": ""
+			}
+		]
+	}]
+}
