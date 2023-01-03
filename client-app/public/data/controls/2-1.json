@@ -1,0 +1,30 @@
+{
+    "id": "2-1",
+    "label": "What Controls the Lighting in this Facility",
+    "control": [
+        {
+            "id": "2-1-1",
+            "inputType": "radio",
+            "label": "Lightning Control Panel",
+            "name": "2-1",
+            "value": "2-1-1",
+            "selected": false
+        },
+        {
+            "id": "2-1-2",
+            "inputType": "radio",
+            "label": "Contractor",
+            "name": "2-1",
+            "value": "2-1-2",
+            "selected": false
+        },
+        {
+            "id": "2-1-3",
+            "inputType": "radio",
+            "label": "Time Clock",
+            "name": "2-1",
+            "value": "2-1-3",
+            "selected": false
+        }
+    ]
+}

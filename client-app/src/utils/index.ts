@@ -10,3 +10,14 @@ export const getLocalStorage = (key: string) => {
     }
   }
 }
+type callbackFn = (args: any) => void;
+
+export const once = (fn: callbackFn) => {
+  let done = false;
+  return (...args: any[]) => {
+    if (!done) {
+      done = true;
+      fn([...args]);
+    }
+  };
+};

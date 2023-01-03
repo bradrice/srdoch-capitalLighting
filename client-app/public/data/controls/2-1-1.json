@@ -1,0 +1,14 @@
+{
+    "id": "2-1-1",
+    "label": "",
+    "control": [
+        {
+            "id": "2-1-1",
+            "inputType": "text",
+            "label": "Lightning Control Panel Make",
+            "name": "2-1-1",
+            "value": "2-1-1-1",
+            "selected": false
+        }
+    ]
+}

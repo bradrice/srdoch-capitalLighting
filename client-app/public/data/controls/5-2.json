@@ -1,0 +1,12 @@
+{
+    "id": "5-2",
+    "control": [
+        {
+            "id": "5-2-1",
+            "inputType": "text",
+            "label": "Describe 'other' fixure type",
+            "name": "description-other-fixture",
+            "value": "5-2"
+        }
+    ]
+}

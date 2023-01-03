@@ -19,20 +19,33 @@ export const AuditLocation = () => {
 
   useEffect(() => {
     console.log(`/data/${id}.json`);
-    fetch(`/data/${id}.json`)
-      .then(async res => await res.json())
-      .then(data => {
-        console.log(data);
-        setTemplateData(data);
-      })
-      .catch((err) => {
-        console.log(err.message);
-        const error = new Error(err.message)
-        throw error;
-      })
+    const fetchId = async (): Promise<void> => {
+      try {
+        fetch(`/data/${id}.json`)
+          .then(async res => await res.json())
+          .then(data => {
+            console.log(data);
+            setTemplateData(data);
+          })
+          .catch((err) => {
+            console.log(err.message);
+            const error = new Error(err.message)
+            throw error;
+          })
+      } catch (error) {
+        // You can create an error state and set error here
+        console.log(error);
+      }
+    }
+    void fetchId();
+
+    return () => {
+      // Do some cleanup
+    }
   }, []);
 
   function renderSwitch(param: string) {
+    console.log(param);
     switch (param) {
       case 'T1':
         return <T1 data={templateData} />;

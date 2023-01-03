@@ -36,6 +36,7 @@ module.exports = {
     "react/react-in-jsx-scope": "off",
     "@typescript-eslint/member-delimiter-style": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/strict-boolean-expressions": "warn",
     "@typescript-eslint/space-before-function-paren": [
       "warn",
       {

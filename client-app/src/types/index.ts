@@ -3,14 +3,15 @@ export interface Control {
   inputType: string,
   label: string,
   name: string,
-  value?: string,
+  value: string,
   level: number,
+  selected?: boolean
 }
 
 export interface levelControl {
   name: string;
   level: number;
-  formControl: Control[]
+  formControl: string;
 }
 
 export interface Template {
@@ -18,9 +19,20 @@ export interface Template {
   template: string,
   heading?: string,
   subhead?: string,
-  control: levelControl[]
+  control: levelControl[],
 }
 
 export interface TemplateProps {
   data: Template | undefined
+}
+
+export interface RadioButtonCallbackProps {
+  val: string;
+  level: number;
+}
+
+export interface SubControl {
+  id: string;
+  label: string;
+  control: Control[];
 }

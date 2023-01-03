@@ -1,31 +1,22 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-export interface iOption {
-  optionId: number;
-  optionValue: string;
+export interface iProgress {
+  currentId: string;
 }
 
-export interface iQuestion {
-  questionId: number;
-  questionText: string;
-  options: iOption[];
-}
-
-export const levelSlice = createSlice({
-  name: 'level',
+export const progressSlice = createSlice({
+  name: 'progress',
   initialState: {
-    value: {
-      level: 0,
-      control: []
-    }
+    currentId: ''
   },
   reducers: {
-    setFormLevelValue: (state, action) => {
-      state.value = { level: action.payload.level, control: action.payload.control }
+    setCurrentId: (state, action: PayloadAction<string>) => {
+      state = { currentId: action.payload };
+      return state;
     }
   }
 })
 
-export const { setFormLevelValue } = levelSlice.actions
+export const { setCurrentId } = progressSlice.actions
 
-export default levelSlice.reducer
+export default progressSlice.reducer
