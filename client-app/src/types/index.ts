@@ -32,6 +32,7 @@ export interface RadioButtonCallbackProps {
 }
 
 export interface SubControl {
+  level: number;
   id: string;
   label: string;
   control: Control[];

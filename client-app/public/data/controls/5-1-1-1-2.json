@@ -1,0 +1,13 @@
+{
+    "id": "5-1-2",
+    "label": "Other",
+    "control": [
+        {
+            "id": "5-2-1",
+            "inputType": "text",
+            "label": "Other Ceiling Construction",
+            "name": "description-other-ceiling-construction",
+            "value": "5-2"
+        }
+    ]
+}

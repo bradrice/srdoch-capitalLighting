@@ -1,6 +1,6 @@
 {
     "id": "5-1-1",
-    "label": "Fixture Type",
+    "label": "Fixture Location",
     "control": [
         {
             "id": "5-1-1-1",
@@ -45,8 +45,8 @@
         {
             "id": "5-1-1-6",
             "inputType": "radio",
-            "label": "5-1-1",
-            "name": "Break Room",
+            "label": "Break Room",
+            "name": "5-1-1",
             "value": "5-1-1-1",
             "selected": false
         },
@@ -87,7 +87,7 @@
             "inputType": "radio",
             "label": "Other",
             "name": "5-1-1",
-            "value": "5-1-1-11",
+            "value": "5-1-1-2",
             "selected": false
         }
     ]

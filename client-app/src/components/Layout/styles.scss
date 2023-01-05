@@ -10,8 +10,16 @@
   background-color: #fff;
   padding: 0.5rem 1rem;
   border-bottom: 1px solid #ddd;
+  width: 100%;
+  position: fixed;
+  height: 78px;
 }
 
 .Layout__save-button {
   height: auto;
+}
+
+.Layout__page-content {
+  width: 100%;
+  padding-top: 90px;
 }

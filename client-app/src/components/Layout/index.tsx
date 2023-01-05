@@ -18,7 +18,7 @@ export const Layout = ({ children }: PropsWithChildren) => {
                       ''
                     )}
             </div>
-            <div className="page-content container">{children}</div>
+            <div className="Layout__page-content container">{children}</div>
         </div>
   );
 };

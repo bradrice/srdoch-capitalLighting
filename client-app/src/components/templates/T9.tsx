@@ -2,15 +2,16 @@ import { useEffect, useCallback } from 'react';
 import { TemplateProps } from '../../types/';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { setLevelByValue } from '../../store/level';
-import { addControl, updateControl } from '../../store/control';
+import { updateControl, addNewControl } from '../../store/control';
 // import { setCurrentId } from '../../store/progress';
 import { TextInput } from '../textinput/';
 import { RadioButton } from '../radiobutton/';
+import { useNavigate } from 'react-router-dom';
 
 
 
 export const T9 = (props: TemplateProps) => {
-  // const [currentValue, setCurrentValue] = useState<string | undefined>('');
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const level = useAppSelector((state) => state.level);
   const control = useAppSelector((state) => state.control);
@@ -42,7 +43,7 @@ export const T9 = (props: TemplateProps) => {
       .then(async res => await res.json())
       .then(data => {
         console.log(data);
-        dispatch(addControl(data));
+        dispatch(addNewControl({ control: data, level }));
       })
       .catch((err) => {
         console.log(err.message);
@@ -68,15 +69,20 @@ export const T9 = (props: TemplateProps) => {
     }
   }, []);
 
-  const handleControlEntry = ({ id, val }: { id: string, val: string }) => {
+  const handleControlEntry = ({ id, val, currLevel }: { id: string, val: string, currLevel: number }) => {
     if (val === undefined || val === '') return;
+    if (val === '5-1-1-1-1-1-2') {
+      navigate('/audit/interiorother');
+      return;
+    }
     const parentId = val.slice(0, -2);
     console.log(val, parentId);
     dispatch(updateControl({ id, parentId }));
     fetch(`/data/controls/${val}.json`)
       .then(async res => await res.json())
       .then(data => {
-        dispatch(addControl(data));
+        // dispatch(addControl(data));
+        dispatch(addNewControl({ control: data, level: currLevel }))
       })
       .catch((err) => {
         console.log(err.message);
@@ -88,14 +94,15 @@ export const T9 = (props: TemplateProps) => {
   return (
       <form>
 
-              {control.map((formControl) => {
+              {control.map((formControl, cntrlIndex) => {
                 return (
                   <div key={formControl.id} className="row">
                     <div className="col-sm-12">
+                      <h3>{formControl.label}</h3>
                   {formControl.control.map((formControl) => {
                     return (formControl.inputType === 'radio'
-                      ? <RadioButton control={formControl} callback={handleControlEntry} level={level} key={formControl.id} />
-                      : <TextInput control={formControl} callback={handleControlEntry} level={level} key={formControl.id} />)
+                      ? <RadioButton control={formControl} callback={handleControlEntry} level={cntrlIndex} key={formControl.id} />
+                      : <TextInput control={formControl} callback={handleControlEntry} level={cntrlIndex} key={formControl.id} />)
                   }
                   )}
                   <hr />

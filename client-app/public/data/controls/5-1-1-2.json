@@ -1,0 +1,13 @@
+{
+    "id": "5-1-1-2",
+    "label": "Other",
+    "control": [
+        {
+            "id": "5-2-1",
+            "inputType": "text",
+            "label": "Other Location",
+            "name": "description-other-location",
+            "value": ""
+        }
+    ]
+}

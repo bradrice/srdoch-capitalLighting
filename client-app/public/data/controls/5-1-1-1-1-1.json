@@ -1,0 +1,78 @@
+{
+    "id": "5-1-1-1-1-1",
+    "label": "Fixture Technology",
+    "control": [
+        {
+            "id": "5-1-1-1-1",
+            "inputType": "radio",
+            "label": "Compact Flourescent",
+            "name": "5-1-1-1-1-1",
+            "value": "5-1-1-1-1-1-1",
+            "selected": false
+        },
+        {
+            "id": "5-1-1-1-2",
+            "inputType": "radio",
+            "label": "Linear Flourescent",
+            "name": "5-1-1-1-1-1",
+            "value": "5-1-1-1-1-1-1",
+            "selected": false
+        },
+        {
+            "id": "5-1-1-1-3",
+            "inputType": "radio",
+            "label": "Incandescent",
+            "name": "5-1-1-1-1-1",
+            "value": "5-1-1-1-1-1-1",
+            "selected": false
+        },
+        {
+            "id": "5-1-1-1-4",
+            "inputType": "radio",
+            "label": "Halogen",
+            "name": "5-1-1-1-1-1",
+            "value": "5-1-1-1-1-1-1",
+            "selected": false
+        },
+        {
+            "id": "5-1-1-1-5",
+            "inputType": "radio",
+            "label": "Metal Halide",
+            "name": "5-1-1-1-1-1",
+            "value": "5-1-1-1-1-1-1",
+            "selected": false
+        },
+        {
+            "id": "5-1-1-1-6",
+            "inputType": "radio",
+            "label": "LED Replacement Lamp",
+            "name": "5-1-1-1-1-1",
+            "value": "5-1-1-1-1-1-1",
+            "selected": false
+        },
+        {
+            "id": "5-1-1-1-7",
+            "inputType": "radio",
+            "label": "Integrated LED",
+            "name": "5-1-1-1-1-1",
+            "value": "5-1-1-1-1-1-1",
+            "selected": false
+        },
+        {
+            "id": "5-1-1-1-8",
+            "inputType": "radio",
+            "label": "Other",
+            "name": "5-1-1-1-1-1",
+            "value": "5-1-1-1-1-1-2",
+            "selected": false
+        },
+        {
+            "id": "5-1-1-1-9",
+            "inputType": "radio",
+            "label": "Exit Bug",
+            "name": "5-1-1-1-1-1",
+            "value": "5-1-1-1-1-1-2",
+            "selected": false
+        }
+    ]
+}

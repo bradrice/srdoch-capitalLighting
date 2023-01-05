@@ -1,47 +1,13 @@
 {
 	"id": "1",
 	"template": "T1",
-	"controls": [{
-			"id": "sf1",
-			"inputType": "text",
-			"label": "SF Rear Left",
-			"name": "sfrearleft"
-		},
+	"heading": "Footcandle Readings",
+	"subhead": "Foot Candle Readings should be taken 3' Above the Finished Floor. There are 9 readings for the Sales Floor, all readings must be entered.Describe where you are standing in the 'rear' and which direction you are facing when you take the following readings",
+	"control": [
 		{
-			"id": "sf2",
-			"inputType": "text",
-			"label": "SF Rear Center",
-			"name": "sfrearcenter"
-		},
-		{
-			"id": "sf3",
-			"inputType": "text",
-			"label": "SF Rear Right",
-			"name": "sfrearright"
-		},
-		{
-			"id": "sf4",
-			"inputType": "text",
-			"label": "SF Middle Left",
-			"name": "sfmiddleleft"
-		},
-		{
-			"id": "sf5",
-			"inputType": "text",
-			"label": "SF Middle Center",
-			"name": "sfmiddlecenter"
-		},
-		{
-			"id": "sf6",
-			"inputType": "text",
-			"label": "SF Middle Right",
-			"name": "sfmiddleright"
-		},
-		{
-			"id": "sf7",
-			"inputType": "text",
-			"label": "SF Front Left",
-			"name": "sffrontleft"
+			"name": "level1",
+			"level": 1,
+			"formControl": "1-1"
 		}
 	]
 }

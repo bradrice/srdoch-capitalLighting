@@ -1,0 +1,62 @@
+{
+    "id": "1-1",
+    "label": "",
+    "controls": [
+        {
+            "id": "sf1",
+            "inputType": "text",
+            "label": "SF Rear Left",
+            "name": "sfrearleft",
+            "value": "",
+            "selected": false
+        },
+        {
+            "id": "sf2",
+            "inputType": "text",
+            "label": "SF Rear Center",
+            "name": "sfrearcenter",
+            "value": "",
+            "selected": false
+        },
+        {
+            "id": "sf3",
+            "inputType": "text",
+            "label": "SF Rear Right",
+            "name": "sfrearright",
+            "value": "",
+            "selected": false
+        },
+        {
+            "id": "sf4",
+            "inputType": "text",
+            "label": "SF Middle Left",
+            "name": "sfmiddleleft",
+            "value": "",
+            "selected": false
+        },
+        {
+            "id": "sf5",
+            "inputType": "text",
+            "label": "SF Middle Center",
+            "name": "sfmiddlecenter",
+            "value": "",
+            "selected": false
+        },
+        {
+            "id": "sf6",
+            "inputType": "text",
+            "label": "SF Middle Right",
+            "name": "sfmiddleright",
+            "value": "",
+            "selected": false
+        },
+        {
+            "id": "sf7",
+            "inputType": "text",
+            "label": "SF Front Left",
+            "name": "sffrontleft",
+            "value": "",
+            "selected": false
+        }
+    ]
+}

@@ -1,0 +1,60 @@
+{
+    "id": "3-1",
+    "label": "T3",
+    "controls": [
+        {
+            "id": "3l1",
+            "inputType": "radio",
+            "label": "Bussway",
+            "name": "bussway",
+            "value": "3l1-1",
+            "selected": false
+        },
+        {
+            "id": "3l2",
+            "inputType": "radio",
+            "label": "Lightoiler",
+            "name": "lightoiler",
+            "value": "3l1-1",
+            "selected": false
+        },
+        {
+            "id": "3l2-2",
+            "inputType": "radio",
+            "label": "Pendant",
+            "name": "pendant",
+            "value": "Pendant"
+        },
+        {
+            "id": "3l2-3",
+            "inputType": "radio",
+            "label": "Cable",
+            "name": "cable",
+            "value": "Cable",
+            "selected": false
+        },
+        {
+            "id": "3l2-4",
+            "inputType": "radio",
+            "label": "Surface",
+            "name": "surface",
+            "value": "Surface",
+            "selected": false
+        },
+        {
+            "id": "3l2-5",
+            "inputType": "radio",
+            "label": "Other",
+            "name": "other",
+            "value": "Other",
+            "selected": false
+        },
+        {
+            "id": "3l3",
+            "inputType": "text",
+            "label": "Juno",
+            "name": "juno",
+            "selected": false
+        }
+    ]
+}
