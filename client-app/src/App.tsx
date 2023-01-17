@@ -4,7 +4,7 @@ import { APP_ROOT, PERFORM_AUDIT } from './routes';
 import { Home } from './components/home';
 import { Audit } from './components/audit';
 import { AuditLocation } from './components/AuditLocation';
-import { InteriorOther } from './components/InteriorOther'
+import { InteriorOther } from './components/InteriorOther';
 import './App.css';
 
 const App = (): JSX.Element => {
@@ -14,8 +14,8 @@ const App = (): JSX.Element => {
         <Routes>
           <Route path={PERFORM_AUDIT} element={<Audit />} />
           <Route path={`${APP_ROOT}/*`} element={<Home />} />
+          <Route path="/audit/interiorother" element={<InteriorOther />} />
           <Route path="/audit/:id" element={<AuditLocation />} />
-          <Route path="audit/interiorother" element={<InteriorOther />} />
         </Routes>
       </Router>
     </div>

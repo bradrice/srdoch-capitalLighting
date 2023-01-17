@@ -1,9 +1,9 @@
 import { ChangeEvent } from 'react';
-import { Control } from '../../types'
+import { iControl } from '../../types'
 
 interface RadioButtonProps {
   callback: ({ id, val, currLevel }: { id: string, val: string, currLevel: number }) => void;
-  control: Control;
+  control: iControl;
   level: number;
 }
 

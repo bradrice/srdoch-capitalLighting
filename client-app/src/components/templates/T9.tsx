@@ -3,7 +3,6 @@ import { TemplateProps } from '../../types/';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { setLevelByValue } from '../../store/level';
 import { updateControl, addNewControl } from '../../store/control';
-// import { setCurrentId } from '../../store/progress';
 import { TextInput } from '../textinput/';
 import { RadioButton } from '../radiobutton/';
 import { useNavigate } from 'react-router-dom';
@@ -71,6 +70,7 @@ export const T9 = (props: TemplateProps) => {
 
   const handleControlEntry = ({ id, val, currLevel }: { id: string, val: string, currLevel: number }) => {
     if (val === undefined || val === '') return;
+    console.log(val);
     if (val === '5-1-1-1-1-1-2') {
       navigate('/audit/interiorother');
       return;

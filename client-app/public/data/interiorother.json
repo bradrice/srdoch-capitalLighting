@@ -1,0 +1,14 @@
+{
+	"id": "5",
+	"template": "interiorother",
+	"heading": "New Interior Fixture",
+	"subhead": "",
+	"instruction": "Begin the survey by selecting an option below. Based on your selection, a new set of questions will drop-down and allow you to advance through the survey. All questions must be answered. You cannot skip questions.Selections cannot be saved until all appropriate selections are made and photos uploaded. Please try to finish your fixture and lamp selections with minimal interruptions, as the page may refresh and you will lose your previous selections before saving.",
+	"control": [
+		{
+			"name": "level1",
+			"level": 1,
+			"formControl": "5-1"
+		}
+	]
+}

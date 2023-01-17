@@ -2,30 +2,20 @@ import { useEffect, useState } from 'react';
 import { AuditCard } from '../AuditCard';
 import { Button } from 'reactstrap';
 import { Layout } from '../Layout';
+import { getAuditTypes } from '../../api'
+import { iAuditType } from '../../types';
 
 import './styles.scss';
 
-interface Location {
-  title: string,
-  id: number,
-  template: string
-}
-
 export const Audit = (): JSX.Element => {
-  const [location, setLocation] = useState<Location[]>();
+  const [auditType, setAuditType] = useState<iAuditType[]>();
 
   useEffect(() => {
-    fetch('/data/locations.json')
-      .then(async res => await res.json())
-      .then(data => {
-        setLocation(data.location);
-      })
-      .catch((err) => {
-        console.log(err.message);
-        const error = new Error(err.message)
-        throw error;
-      })
-    console.log('location', location)
+    const res = getAuditTypes().then((data) => {
+      console.log(data);
+      setAuditType(data)
+    });
+    console.log('location', location, res)
   }, []);
 
   return (
@@ -59,8 +49,8 @@ export const Audit = (): JSX.Element => {
               </h2>
             </div>
             <div className="row">
-              {(location !== undefined && location?.length > 0)
-                ? location?.map((item) => {
+              {(auditType !== undefined && auditType?.length > 0)
+                ? auditType?.map((item) => {
                   // console.log(item);
                   return (
                     <div className="col-sm-3" key={item.id} data-id={item.id}>

@@ -1,22 +1,28 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { iRow } from '../types'
 
 export interface iProgress {
-  currentId: string;
+  auditId: string;
+  savedRowControls: iRow[];
 }
+
+const initialState: iProgress = { auditId: '', savedRowControls: [] };
 
 export const progressSlice = createSlice({
   name: 'progress',
-  initialState: {
-    currentId: ''
-  },
+  initialState,
   reducers: {
-    setCurrentId: (state, action: PayloadAction<string>) => {
-      state = { currentId: action.payload };
+    setAuditId: (state, action: PayloadAction<string>) => {
+      state = { ...state, auditId: action.payload };
+      return state;
+    },
+    setRowControls: (state, action: PayloadAction<iRow[]>) => {
+      state = { ...state, savedRowControls: action.payload };
       return state;
     }
   }
 })
 
-export const { setCurrentId } = progressSlice.actions
+export const { setAuditId, setRowControls } = progressSlice.actions
 
 export default progressSlice.reducer

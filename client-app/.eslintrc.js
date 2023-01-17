@@ -18,7 +18,7 @@ module.exports = {
   parserOptions: {
     ecmaVersion: "latest",
     sourceType: "module",
-    project: "tsconfig.json",
+    project: ["tsconfig.json", "functions/tsconfig.json"],
     tsconfigRootDir: __dirname,
     ecmaFeatures: {
       jsx: true,
@@ -26,10 +26,10 @@ module.exports = {
   },
   plugins: ["react", "@typescript-eslint", "import"],
   rules: {
+    "indent" : "off",
     "eslint-multiline-ternary": "off",
     "@typescript-eslint/semi": "off",
     "react/no-unescaped-entities": 0,
-    "no-tabs": 0,
     "no-multiple-empty-lines": 0,
     "@typescript-eslint/explicit-module-boundary-types": ["off"],
     "react/jsx-uses-react": "off",
@@ -46,5 +46,16 @@ module.exports = {
       },
     ],
     "@typescript-eslint/strict-boolean-expressions": "warn",
+    "quotes": "off",
+    "@typescript-eslint/quotes": [
+      "error",
+      "single",
+      {
+        "avoidEscape": true,
+        "allowTemplateLiterals": true
+      }
+    ],
+    "object-curly-spacing": "off",
+    "@typescript-eslint/object-curly-spacing": "warn"
   },
 };

@@ -5,7 +5,7 @@ import './styles.scss';
 
 export interface AuditCardProps {
   title: string;
-  id?: number;
+  id?: string;
 }
 
 export const AuditCard = (props: AuditCardProps) => {
