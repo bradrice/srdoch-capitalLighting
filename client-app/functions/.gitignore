@@ -9,3 +9,5 @@ typings/
 node_modules/
 
 firestore/caplight-18de7-2035aab712af.json
+
+.env

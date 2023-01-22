@@ -2,6 +2,7 @@ import {
   collection,
   getDocs,
   getDoc,
+  setDoc,
   doc,
   QuerySnapshot,
   DocumentData,
@@ -10,7 +11,7 @@ import {
 } from 'firebase/firestore';
 import { db } from '../firestore';
 import { getAuth, signInAnonymously } from 'firebase/auth';
-import { iAuditType, iControl, iControlRow } from '../types';
+import { iAuditType, iControl, iControlRow, iSavedAudit, iSaveAudit } from '../types';
 
 
 export const getControls = async () => {
@@ -55,6 +56,15 @@ export const getControlsByRow = async (docid: string): Promise<iControl[]> => {
   return docData;
 }
 
+export const setRowDoc = async (senddata: iSaveAudit) => {
+  const auditId = senddata.auditId;
+  await setDoc(doc(db, 'progress', auditId), {
+    'controls-order': senddata.controlOrder,
+    pageId: senddata.pageId,
+    selectControls: senddata.selectControls
+  });
+}
+
 
 export const getRowDoc = async (rowid: string): Promise<iControlRow> => {
   const docRef = doc(db, 'control_row', rowid);
@@ -63,4 +73,12 @@ export const getRowDoc = async (rowid: string): Promise<iControlRow> => {
   const querySnapshot = await getDoc(docRef)
   console.log(querySnapshot.data());
   return querySnapshot.data() as iControlRow;
+}
+
+export const getAuditById = async (id: string): Promise<iSavedAudit> => {
+  const docRef = doc(db, 'progress', id);
+  const auth = getAuth();
+  await signInAnonymously(auth);
+  const querySnapshot = await getDoc(docRef);
+  return querySnapshot.data() as iSavedAudit;
 }

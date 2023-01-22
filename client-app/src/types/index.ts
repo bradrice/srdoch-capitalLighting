@@ -65,3 +65,16 @@ export interface iRow {
   rowTitle: string;
   control: iControl[];
 }
+
+export interface iSavedAudit {
+  'controls-order': string[];
+  pageId: string;
+  selectControls: Record<string, string>;
+}
+
+export interface iSaveAudit {
+  auditId: string;
+  controlOrder: string[];
+  pageId: string;
+  selectControls: any;
+}

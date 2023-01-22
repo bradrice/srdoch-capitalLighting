@@ -56,6 +56,8 @@ module.exports = {
       }
     ],
     "object-curly-spacing": "off",
-    "@typescript-eslint/object-curly-spacing": "warn"
+    "@typescript-eslint/object-curly-spacing": "warn",
+    "no-unused-vars": "warn",
+    "@typescript-eslint/prefer-optional-chain": "warn"
   },
 };
