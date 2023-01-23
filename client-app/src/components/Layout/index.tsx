@@ -38,11 +38,11 @@ export const Layout = (props: PropsWithChildren<ComponentProps>) => {
     });
     const savedControlObj = Object.fromEntries(savedControlMap);
     console.log({ auditId: '22', pageId: 'interiorother', controlOrder, selectControls: savedControlObj })
-    void setRowDoc({auditId: '', pageId: 'interiorother', controlOrder, selectControls: savedControlObj})
+    void setRowDoc({auditId: '22', pageId: 'interiorother', controlOrder, selectControls: savedControlObj})
       .then(() => {
         setIsSaving(false);
       })
-    dispatch(setAuditId(''));
+    dispatch(setAuditId('22'));
   }
   return (
         <div className="Layout__wrapper">
