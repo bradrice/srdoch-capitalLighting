@@ -14,10 +14,11 @@ var control = [
 		"inputType": "radio",
 		"label": "Lay-in",
 		"name": "other-description",
-		"value": "fixture_manufacturer",
+		"value": "Lay-in",
 		"selected": false,
-		"order" : 1
-	}
+		"order" : 1,
+		relation: "other-description"
+	},
 ]
 
 control.forEach(function (obj) {
@@ -28,7 +29,8 @@ control.forEach(function (obj) {
 		name: obj.name,
 		value: obj.value,
 		selected: obj.selected,
-		order: obj.order
+		order: obj.order,
+		relation: obj.relation
 	}).then(function (docRef) {
 		console.log("Document written with ID: ", docRef.id);
 	})

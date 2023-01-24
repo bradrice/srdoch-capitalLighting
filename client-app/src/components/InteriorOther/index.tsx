@@ -2,7 +2,7 @@ import { useEffect, useCallback, useState } from 'react';
 import { Layout } from '../Layout'
 import { useAppDispatch, useAppSelector } from '../../hooks';
 // import { setLevelByValue } from '../../store/level';
-import { addControl, updateControl, updateFromSavedControl } from '../../store/rowcontrol';
+import { addControl, updateControl, updateFromSavedControl, updateTextControl } from '../../store/rowcontrol';
 import { setPageItems } from '../../store/progress';
 import { TextInput } from '../textinput/';
 import { RadioButton } from '../radiobutton';
@@ -13,6 +13,15 @@ interface ComponentProps {
   auditId: string;
 }
 
+const getObjValueByKey = (obj: any, key: string) => {
+  console.log('getting from object', key, obj);
+  return obj[key];
+}
+
+// function isEmptyObject(obj: {}) {
+//   return JSON.stringify(obj) === '{}'
+// }
+
 export const InteriorOther = (props: ComponentProps) => {
   // const navigate = useNavigate();
   const [isSaved, setIsSaved] = useState(true);
@@ -21,6 +30,7 @@ export const InteriorOther = (props: ComponentProps) => {
   // const level = useAppSelector((state) => state.level);
   const rowcontrol = useAppSelector((state) => state.rowcontrol);
   const savedAuditData = useAppSelector(state => state.progress);
+  const savedControlValueObj = useAppSelector(state => state.progress.savedControlValues);
   // const progress = useAppSelector((state) => state.progress);
   // const [rowId] = useState<string[]>(['fixture_type'])
   let didInit = false;
@@ -39,10 +49,12 @@ export const InteriorOther = (props: ComponentProps) => {
 
   const getSavedAudit = useCallback(async () => {
     return await getAuditById('22').then(data => {
+      // if (!isEmptyObject(data)) return;
       setIsSaved(true);
       const controlOrder = data['controls-order'];
       const selectedControls = data.selectControls;
-      dispatch(setPageItems({ auditId: '', pageId: 'interiorother', controlOrder, savedControls: selectedControls }))
+      const savedControlValues = data.savedControlValues;
+      dispatch(setPageItems({ auditId: '', pageId: 'interiorother', controlOrder, savedControls: selectedControls, savedControlValues }))
       console.log('set page items');
       // data['controls-order'].forEach((control, index) => {
       //   const id = selectedControls[control];
@@ -71,24 +83,32 @@ export const InteriorOther = (props: ComponentProps) => {
 
   useEffect(() => {
     const savedControlMap = savedAuditData.savedControls;
-    console.log('update control');
+    // const savedControlValueObj = savedAuditData.savedControlValues;
+    console.log(savedControlValueObj);
     if (rowcontrol.length === savedAuditData.controlOrder.length) {
       savedAuditData.controlOrder.forEach((controlId, index) => {
-        console.log(controlId);
-        dispatch(updateFromSavedControl({ id: savedControlMap[controlId], currLevel: index }));
+        const lookupkey = savedControlMap[controlId]
+        const val = getObjValueByKey(savedControlValueObj, lookupkey);
+        console.log('retrieved', val);
+        dispatch(updateFromSavedControl({ id: savedControlMap[controlId], currLevel: index, value: val }));
       })
     }
   }, [rowcontrol])
 
-  const handleControlEntry = ({ id, val, currLevel }: { id: string, val: string, currLevel: number }) => {
+  const handleControlEntry = ({ id, val, currLevel, dataRelation }: { id: string, val: string, currLevel: number, dataRelation: string | undefined }) => {
     console.log(val, id, currLevel);
     // dispatch(updateControl({id, currLevel}));
-    dispatch(updateControl({ id, currLevel }));
-    void fetchControl(val, currLevel);
+    dispatch(updateControl({ id, currLevel, value: val }));
+    if (dataRelation !== undefined) {
+      void fetchControl(dataRelation, currLevel);
+    }
   }
-  const handleInputEntry = ({ id, val, currLevel }: { id: string, val: string, currLevel: number }) => {
-    console.log(val, id);
-    void fetchControl(id, currLevel);
+  const handleInputEntry = ({ id, val, currLevel, dataRelation }: { id: string, val: string, currLevel: number, dataRelation: string | undefined }) => {
+    console.log(val, dataRelation);
+    dispatch(updateTextControl({ id, currLevel, value: val }));
+    if (dataRelation !== undefined) {
+      void fetchControl(dataRelation, currLevel);
+    }
   }
 
   const renderInput = (formControl: iControl, cntrlIndex: number) => {

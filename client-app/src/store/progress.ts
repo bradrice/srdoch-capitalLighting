@@ -5,9 +5,10 @@ interface iProgress {
   pageId: string;
   controlOrder: string[];
   savedControls: Record<string, string>;
+  savedControlValues: Record<string, string>;
 }
 
-const initialState: iProgress = {auditId: '', pageId: '', controlOrder: [], savedControls: {}};
+const initialState: iProgress = {auditId: '', pageId: '', controlOrder: [], savedControls: {}, savedControlValues: {}};
 
 export const progressSlice = createSlice({
   name: 'progress',

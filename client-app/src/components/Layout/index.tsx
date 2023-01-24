@@ -6,7 +6,10 @@ import Box from '@mui/material/Box';
 import './styles.scss';
 import logo from '../../img/logo-capitollight-mobile.png';
 // import handleSubmit from '../../handles/handleSubmit';
-import { useAppSelector, useAppDispatch } from '../../hooks';
+import {
+  useAppSelector,
+  useAppDispatch
+} from '../../hooks';
 import { setAuditId } from '../../store/progress';
 import { setRowDoc } from '../../api';
 // import { getControlsByRow } from '../../api';
@@ -25,20 +28,32 @@ export const Layout = (props: PropsWithChildren<ComponentProps>) => {
     event.preventDefault();
     setIsSaving(true);
     console.log('send data to firestore', controlData, auditId, props.pageId);
-    const controlOrder = controlData.map(control => {
-      return control.rowid;
+    const controlOrder: string[] = [];
+    controlData.forEach(control => {
+      if (control !== null) {
+        controlOrder.push(control.rowid);
+      }
     })
     const savedControlMap = new Map();
+    const savedValueMap = new Map();
     controlData.forEach((controlrow) => {
+      console.log(controlrow);
+      if (controlrow === null) return;
       controlrow.control.forEach((control) => {
-        if (control.selected === true) {
+        if (control !== null && (control.selected === true || control.inputType === 'text')) {
           savedControlMap.set(controlrow.rowid, control.id);
+        }
+        if (control !== null && (control.value !== '' || control.value !== undefined)) {
+          if (control.inputType === 'text' || control.selected === true) {
+            savedValueMap.set(control.id, control.value)
+          }
         }
       })
     });
     const savedControlObj = Object.fromEntries(savedControlMap);
-    console.log({ auditId: '22', pageId: 'interiorother', controlOrder, selectControls: savedControlObj })
-    void setRowDoc({auditId: '22', pageId: 'interiorother', controlOrder, selectControls: savedControlObj})
+    const savedValueObj = Object.fromEntries(savedValueMap);
+    console.log({ auditId: '22', pageId: 'interiorother', controlOrder, selectControls: savedControlObj, savedControlValues: savedValueObj })
+    void setRowDoc({ auditId: '22', pageId: 'interiorother', controlOrder, selectControls: savedControlObj, savedControlValues: savedValueObj })
       .then(() => {
         setIsSaving(false);
       })

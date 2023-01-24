@@ -4,6 +4,13 @@ import { iRow } from '../types';
 interface updateArgs {
   id: string;
   currLevel: number;
+  value: string;
+}
+
+interface updateTextArgs {
+  id: string;
+  currLevel: number;
+  value: string;
 }
 
 const initialState: iRow[] = [];
@@ -13,6 +20,7 @@ export const rowControlSlice = createSlice({
   initialState,
   reducers: {
     addControl: (state, action: PayloadAction<iRow>) => {
+      console.log('Adding row', action.payload);
       if (action.payload !== null) {
         if (state.length === 0) {
           state[0] = action.payload;
@@ -33,7 +41,11 @@ export const rowControlSlice = createSlice({
         if (index === action.payload.currLevel) {
           console.log('found correct row', index, action.payload.currLevel, action.payload.id);
           return row.control.map(control => {
-            if (control.id === action.payload.id) {
+            if (control.inputType === 'text' && control.id === action.payload.id) {
+              control.value = action.payload.value;
+              return { ...control }
+            }
+            if (control.inputType === 'radio' && control.id === action.payload.id) {
               console.log('set to true');
               control.selected = true;
               return { ...control };
@@ -49,11 +61,16 @@ export const rowControlSlice = createSlice({
     },
     updateFromSavedControl: (state, action: PayloadAction<updateArgs>) => {
       // console.log(current(state[action.payload.currLevel]));
-      console.log(action.payload);
+      console.log('update from saved', action.payload);
       state.map((controlrow) => {
         const newControlRow = controlrow.control.map((control, i) => {
           console.log(control.id, action.payload.id);
-          if (control.id === action.payload.id) {
+          if (control.inputType === 'text' && control.id === action.payload.id) {
+            console.log('found a text match', action.payload.value);
+            control.value = action.payload.value;
+            return control
+          }
+          if (control.inputType === 'radio' && control.id === action.payload.id) {
             console.log('set control to true');
             control.selected = true;
             return { ...control };
@@ -66,10 +83,30 @@ export const rowControlSlice = createSlice({
     },
     addProgressControls: (state, action: PayloadAction<iRow[]>) => {
       state = action.payload;
+    },
+    updateTextControl: (state, action: PayloadAction<updateTextArgs>) => {
+      console.log(action.payload);
+      return [...state].forEach((row, index) => {
+        if (index === action.payload.currLevel) {
+          console.log('found correct row', index, action.payload.currLevel, action.payload.id);
+          return row.control.map(control => {
+            console.log('chekcing', control.id, action.payload.id)
+            if (control.id === action.payload.id) {
+              control.value = action.payload.value;
+              return { ...control };
+            } else {
+              control.selected = false;
+              return control;
+            }
+          });
+        } else {
+          return state;
+        }
+      });
     }
   }
 })
 
-export const { addControl, addNewControl, updateControl, updateFromSavedControl, addProgressControls } = rowControlSlice.actions;
+export const { addControl, addNewControl, updateControl, updateFromSavedControl, addProgressControls, updateTextControl } = rowControlSlice.actions;
 
 export default rowControlSlice.reducer;

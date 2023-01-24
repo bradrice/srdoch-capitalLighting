@@ -58,10 +58,12 @@ export const getControlsByRow = async (docid: string): Promise<iControl[]> => {
 
 export const setRowDoc = async (senddata: iSaveAudit) => {
   const auditId = senddata.auditId;
+  console.log(senddata);
   await setDoc(doc(db, 'progress', auditId), {
     'controls-order': senddata.controlOrder,
     pageId: senddata.pageId,
-    selectControls: senddata.selectControls
+    selectControls: senddata.selectControls,
+    savedControlValues: senddata.savedControlValues
   });
 }
 

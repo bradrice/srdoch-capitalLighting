@@ -70,6 +70,7 @@ export interface iSavedAudit {
   'controls-order': string[];
   pageId: string;
   selectControls: Record<string, string>;
+  savedControlValues: any;
 }
 
 export interface iSaveAudit {
@@ -77,4 +78,5 @@ export interface iSaveAudit {
   controlOrder: string[];
   pageId: string;
   selectControls: any;
+  savedControlValues: any;
 }
