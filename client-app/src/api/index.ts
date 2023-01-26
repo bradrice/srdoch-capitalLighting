@@ -3,6 +3,7 @@ import {
   getDocs,
   getDoc,
   setDoc,
+  addDoc,
   doc,
   QuerySnapshot,
   DocumentData,
@@ -10,9 +11,22 @@ import {
   orderBy
 } from 'firebase/firestore';
 import { db } from '../firestore';
-import { getAuth, signInAnonymously } from 'firebase/auth';
-import { iAuditType, iControl, iControlRow, iSavedAudit, iSaveAudit } from '../types';
+import { getAuth, signInAnonymously, UserCredential } from 'firebase/auth';
+import {
+  iAuditType,
+  iControl,
+  iControlRow,
+  iSavedAudit,
+  iSaveAudit,
+  iSaveLocation,
+  iSavedLocation
+} from '../types';
 
+const authenticate = async (): Promise<UserCredential> => {
+  const auth = getAuth();
+  const promise = await signInAnonymously(auth);
+  return promise;
+}
 
 export const getControls = async () => {
   const auth = getAuth();
@@ -32,8 +46,7 @@ export const getControls = async () => {
 }
 
 export const getAuditTypes = async (): Promise<iAuditType[]> => {
-  const auth = getAuth();
-  await signInAnonymously(auth);
+  await authenticate();
   const collectionRef = collection(db, 'audit_type');
   const q = query(collectionRef, orderBy('order'));
   const querySnapshot = await getDocs(q);
@@ -46,8 +59,7 @@ export const getAuditTypes = async (): Promise<iAuditType[]> => {
 export const getControlsByRow = async (docid: string): Promise<iControl[]> => {
   const collectionRef = collection(db, 'control_row', docid, 'control');
   const q = query(collectionRef, orderBy('order'));
-  const auth = getAuth();
-  await signInAnonymously(auth);
+  await authenticate();
   const querySnapshot = await getDocs(q);
   const docData = querySnapshot.docs
     .map((doc) => {
@@ -70,17 +82,36 @@ export const setRowDoc = async (senddata: iSaveAudit) => {
 
 export const getRowDoc = async (rowid: string): Promise<iControlRow> => {
   const docRef = doc(db, 'control_row', rowid);
-  const auth = getAuth();
-  await signInAnonymously(auth);
-  const querySnapshot = await getDoc(docRef)
-  console.log(querySnapshot.data());
+  await authenticate();
+  const querySnapshot = await getDoc(docRef);
   return querySnapshot.data() as iControlRow;
 }
 
 export const getAuditById = async (id: string): Promise<iSavedAudit> => {
   const docRef = doc(db, 'progress', id);
-  const auth = getAuth();
-  await signInAnonymously(auth);
+  await authenticate();
   const querySnapshot = await getDoc(docRef);
   return querySnapshot.data() as iSavedAudit;
+}
+
+export const getLocations = async () => {
+  const collectionRef = collection(db, 'siteLocation');
+  await authenticate();
+  const querySnapshot = await getDocs(collectionRef);
+  const docData = querySnapshot.docs
+    .map((doc) => {
+      return doc.data() as iSavedLocation;
+    });
+  return docData;
+}
+
+export const setLocation = async (senddata: iSaveLocation) => {
+  const auditId = senddata.auditId;
+  console.log(senddata);
+  await addDoc(collection(db, 'siteLocation'), {
+    auditId: senddata.auditId,
+    locaton: senddata.location,
+    typeId: senddata.typeId,
+    id: senddata.id
+  });
 }

@@ -49,17 +49,11 @@ export const InteriorOther = (props: ComponentProps) => {
 
   const getSavedAudit = useCallback(async () => {
     return await getAuditById('22').then(data => {
-      // if (!isEmptyObject(data)) return;
       setIsSaved(true);
       const controlOrder = data['controls-order'];
       const selectedControls = data.selectControls;
       const savedControlValues = data.savedControlValues;
       dispatch(setPageItems({ auditId: '', pageId: 'interiorother', controlOrder, savedControls: selectedControls, savedControlValues }))
-      console.log('set page items');
-      // data['controls-order'].forEach((control, index) => {
-      //   const id = selectedControls[control];
-      //   console.log(id, index);
-      // });
     });
   }, []);
 

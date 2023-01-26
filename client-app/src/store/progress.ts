@@ -1,14 +1,30 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface iProgress {
-  auditId: string;
+interface iSiteLocation {
+  id: number,
+  typeId: string,
+  location: string,
+  auditId: string
+}
+
+interface iPage {
+  siteLocation: iSiteLocation;
   pageId: string;
   controlOrder: string[];
   savedControls: Record<string, string>;
   savedControlValues: Record<string, string>;
 }
 
-const initialState: iProgress = {auditId: '', pageId: '', controlOrder: [], savedControls: {}, savedControlValues: {}};
+interface iProgress {
+  auditId: string;
+  pageId: string;
+  siteLocation?: iSiteLocation;
+  controlOrder: string[];
+  savedControls: Record<string, string>;
+  savedControlValues: Record<string, string>;
+}
+
+const initialState: iProgress = { auditId: '', pageId: '', controlOrder: [], savedControls: {}, savedControlValues: {} };
 
 export const progressSlice = createSlice({
   name: 'progress',
@@ -22,10 +38,13 @@ export const progressSlice = createSlice({
       console.log(action.payload);
       state = action.payload;
       return state;
+    },
+    setSiteLocation: (state, action: PayloadAction<iSiteLocation>) => {
+      state.siteLocation = action.payload;
     }
   }
 })
 
-export const { setAuditId, setPageItems } = progressSlice.actions
+export const { setAuditId, setPageItems, setSiteLocation } = progressSlice.actions;
 
-export default progressSlice.reducer
+export default progressSlice.reducer;

@@ -24,6 +24,7 @@ export const Layout = (props: PropsWithChildren<ComponentProps>) => {
   const [isSaving, setIsSaving] = useState(false);
   const controlData = useAppSelector(state => state.rowcontrol);
   const auditId = useAppSelector(state => state.progress.auditId);
+  const siteLocation = useAppSelector(state => state.progress.siteLocation);
   const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     setIsSaving(true);
@@ -62,17 +63,24 @@ export const Layout = (props: PropsWithChildren<ComponentProps>) => {
   return (
         <div className="Layout__wrapper">
             <div className="Layout__page-header">
+              <Box sx={{ display: 'flex' }}>
                 <Link to="/"><img src={logo} alt="Capital Lightign logo"/></Link>
-                {currentPath.pathname !== '/'
-                  ? (
+              </Box>
+                {siteLocation?.id !== null &&
+                <Box sx={{ display: 'flex' }}>
+                Audit {auditId} - { siteLocation?.typeId }:{siteLocation?.id}
+                  </Box>
+                }
+            {currentPath.pathname !== '/'
+              ? (
             <Box sx={{ display: 'flex' }}>
               <Button size="sm" color="primary" className="Layout__save-button" onClick={handleClick} >Save Progress</Button>
               {isSaving && <CircularProgress />}
             </Box>
-                    )
-                  : (
-                      ''
-                    )}
+                )
+              : (
+                  ''
+                )}
             </div>
             <div className="Layout__page-content container">{props.children}</div>
         </div>

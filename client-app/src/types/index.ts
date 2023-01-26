@@ -47,6 +47,8 @@ export interface iAuditType {
   subhead?: string;
   template: string;
   title: string;
+  typeId: string;
+  location: string;
 }
 
 export interface iRowControls {
@@ -70,7 +72,7 @@ export interface iSavedAudit {
   'controls-order': string[];
   pageId: string;
   selectControls: Record<string, string>;
-  savedControlValues: any;
+  savedControlValues: Record<string, string>;
 }
 
 export interface iSaveAudit {
@@ -78,5 +80,19 @@ export interface iSaveAudit {
   controlOrder: string[];
   pageId: string;
   selectControls: any;
-  savedControlValues: any;
+  savedControlValues: Record<string, string>;
+}
+
+export interface iSavedLocation {
+  auditId: string;
+  location: string;
+  typeId: string;
+  id: number;
+}
+
+export interface iSaveLocation {
+  auditId: string;
+  location: string;
+  typeId: string;
+  id: number;
 }
