@@ -24,7 +24,7 @@ export interface Template {
 }
 
 export interface TemplateProps {
-  data: Template | undefined
+  auditId: string;
 }
 
 export interface RadioButtonCallbackProps {
@@ -49,6 +49,7 @@ export interface iAuditType {
   title: string;
   typeId: string;
   location: string;
+  initialRow: string;
 }
 
 export interface iRowControls {
@@ -70,13 +71,14 @@ export interface iRow {
 
 export interface iSavedAudit {
   'controls-order': string[];
+  progressId: string;
   pageId: string;
   selectControls: Record<string, string>;
   savedControlValues: Record<string, string>;
 }
 
 export interface iSaveAudit {
-  auditId: string;
+  progressId: string;
   controlOrder: string[];
   pageId: string;
   selectControls: any;

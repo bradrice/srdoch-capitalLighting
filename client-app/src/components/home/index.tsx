@@ -55,7 +55,7 @@ export const Home = (): JSX.Element => {
           <form onSubmit={handleSubmit}>
           <div className="row">
             <div className="col-6">
-                <div>Audit Number: <Input type="text" name='auditnumber' id='auditnumber' value={auditNumber} onChange={(e) => handleAuditNumberChange(e)} /></div>
+                <div>Audit Number: <Input type="text" name='auditnumber' id='auditnumber' value={auditNumber} disabled /></div>
               <p>Capitol Light Contact Name: CSR(nccsr)</p>
               <p>Location: DSG 30</p>
               <p>Address 1: </p>

@@ -103,10 +103,14 @@ export const rowControlSlice = createSlice({
           return state;
         }
       });
+    },
+    initializeRows: (state) => {
+      console.log('initializeRows');
+      return initialState;
     }
   }
 })
 
-export const { addControl, addNewControl, updateControl, updateFromSavedControl, addProgressControls, updateTextControl } = rowControlSlice.actions;
+export const { addControl, addNewControl, updateControl, updateFromSavedControl, addProgressControls, updateTextControl, initializeRows } = rowControlSlice.actions;
 
 export default rowControlSlice.reducer;

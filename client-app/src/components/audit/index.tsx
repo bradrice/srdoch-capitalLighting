@@ -52,7 +52,7 @@ export const Audit = (): JSX.Element => {
                   // console.log(item);
                   return (
                     <div className="col-sm-3" key={item.id} data-id={item.id}>
-                      <AuditCard title={item.title} id={item.id} typeId={item.typeId} location={item.location} />
+                      <AuditCard title={item.title} id={item.id} typeId={item.typeId} location={item.location} initialRow={item.initialRow} />
                     </div>
                   );
                 })

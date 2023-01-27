@@ -8,7 +8,8 @@ import {
   QuerySnapshot,
   DocumentData,
   query,
-  orderBy
+  orderBy,
+  where
 } from 'firebase/firestore';
 import { db } from '../firestore';
 import { getAuth, signInAnonymously, UserCredential } from 'firebase/auth';
@@ -56,6 +57,17 @@ export const getAuditTypes = async (): Promise<iAuditType[]> => {
   return docData;
 }
 
+export const getAuditTypeById = async (id: string): Promise<iAuditType[]> => {
+  await authenticate();
+  const collectionRef = collection(db, 'audit_type');
+  const q = query(collectionRef, where('id', '==', id));
+  const querySnapshot = await getDocs(q);
+  const docData = querySnapshot.docs.map((doc) => {
+    return doc.data() as iAuditType;
+  });
+  return docData;
+}
+
 export const getControlsByRow = async (docid: string): Promise<iControl[]> => {
   const collectionRef = collection(db, 'control_row', docid, 'control');
   const q = query(collectionRef, orderBy('order'));
@@ -69,9 +81,10 @@ export const getControlsByRow = async (docid: string): Promise<iControl[]> => {
 }
 
 export const setRowDoc = async (senddata: iSaveAudit) => {
-  const auditId = senddata.auditId;
+  const progressId = senddata.progressId;
   console.log(senddata);
-  await setDoc(doc(db, 'progress', auditId), {
+  await setDoc(doc(db, 'progress', progressId), {
+    progressId: senddata.progressId,
     'controls-order': senddata.controlOrder,
     pageId: senddata.pageId,
     selectControls: senddata.selectControls,
@@ -94,13 +107,24 @@ export const getAuditById = async (id: string): Promise<iSavedAudit> => {
   return querySnapshot.data() as iSavedAudit;
 }
 
-export const getLocations = async () => {
+export const getAllProgress = async (): Promise<iSavedAudit[]> => {
+  const collectionRef = collection(db, 'progress');
+  await authenticate();
+  const querySnapshot = await getDocs(collectionRef);
+  const docData = querySnapshot.docs
+    .map((doc) => {
+      return doc.data() as iSavedAudit;
+    });
+  return docData;
+}
+
+export const getLocations = async (): Promise<iSaveLocation[]> => {
   const collectionRef = collection(db, 'siteLocation');
   await authenticate();
   const querySnapshot = await getDocs(collectionRef);
   const docData = querySnapshot.docs
     .map((doc) => {
-      return doc.data() as iSavedLocation;
+      return doc.data() as iSaveLocation;
     });
   return docData;
 }

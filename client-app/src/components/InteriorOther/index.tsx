@@ -3,7 +3,7 @@ import { Layout } from '../Layout'
 import { useAppDispatch, useAppSelector } from '../../hooks';
 // import { setLevelByValue } from '../../store/level';
 import { addControl, updateControl, updateFromSavedControl, updateTextControl } from '../../store/rowcontrol';
-import { setPageItems } from '../../store/progress';
+import { setPageItems, setIsSaved } from '../../store/progress';
 import { TextInput } from '../textinput/';
 import { RadioButton } from '../radiobutton';
 import { getAuditById, getControlsByRow, getRowDoc } from '../../api';
@@ -18,19 +18,24 @@ const getObjValueByKey = (obj: any, key: string) => {
   return obj[key];
 }
 
+function isEmptyObject(obj: any) {
+  return JSON.stringify(obj) === '{}'
+}
+
 // function isEmptyObject(obj: {}) {
 //   return JSON.stringify(obj) === '{}'
 // }
 
 export const InteriorOther = (props: ComponentProps) => {
   // const navigate = useNavigate();
-  const [isSaved, setIsSaved] = useState(true);
+  const isSaved = useAppSelector(state => state.progress.isSaved)
   const savedAuditId = useAppSelector(state => state.progress.auditId);
   const dispatch = useAppDispatch();
   // const level = useAppSelector((state) => state.level);
   const rowcontrol = useAppSelector((state) => state.rowcontrol);
   const savedAuditData = useAppSelector(state => state.progress);
   const savedControlValueObj = useAppSelector(state => state.progress.savedControlValues);
+  const progressId = useAppSelector(state => state.progress.progressId);
   // const progress = useAppSelector((state) => state.progress);
   // const [rowId] = useState<string[]>(['fixture_type'])
   let didInit = false;
@@ -48,12 +53,15 @@ export const InteriorOther = (props: ComponentProps) => {
   }, []);
 
   const getSavedAudit = useCallback(async () => {
-    return await getAuditById('22').then(data => {
-      setIsSaved(true);
+    console.log('getting saved audit by progress id', progressId);
+    return await getAuditById(progressId).then(data => {
+      console.log(data);
+      if (isEmptyObject(data) || data === undefined) return;
       const controlOrder = data['controls-order'];
       const selectedControls = data.selectControls;
       const savedControlValues = data.savedControlValues;
-      dispatch(setPageItems({ auditId: '', pageId: 'interiorother', controlOrder, savedControls: selectedControls, savedControlValues }))
+      dispatch(setPageItems({ pageId: savedAuditData.pageId, controlOrder, savedControls: selectedControls, savedControlValues }))
+      dispatch(setIsSaved(true));
     });
   }, []);
 
@@ -61,14 +69,14 @@ export const InteriorOther = (props: ComponentProps) => {
     if (!didInit) {
       didInit = true;
       void getSavedAudit();
-      if (!isSaved) {
+      if (isSaved === false) {
         void fetchControl('fixture_type', 0);
       }
     }
   }, []);
 
   useEffect(() => {
-    if (isSaved && savedAuditId === props.auditId) {
+    if (isSaved !== null && savedAuditId === props.auditId) {
       savedAuditData.controlOrder.forEach((controlId, index) => {
         void fetchControl(controlId, index);
       })
